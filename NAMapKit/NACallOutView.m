@@ -121,21 +121,18 @@ static UIImage *CALLOUT_ANCHOR;
 	leftCap.image = CALLOUT_LEFT_CAP;
 	leftCap.alpha = CALLOUT_ALPHA;
 	[self addSubview:leftCap];
-	[leftCap release];
 
-	UIImageView *rightCap = [[UIImageView alloc] initWithFrame:CGRectMake(CALLOUT_LEFT_IMAGE_WIDTH + centreWidth, 0, CALLOUT_RIGHT_IMAGE_WIDTH, CALLOUT_HEIGHT)];
+    UIImageView *rightCap = [[UIImageView alloc] initWithFrame:CGRectMake(CALLOUT_LEFT_IMAGE_WIDTH + centreWidth, 0, CALLOUT_RIGHT_IMAGE_WIDTH, CALLOUT_HEIGHT)];
 	rightCap.image = CALLOUT_RIGHT_CAP;
 	rightCap.alpha = CALLOUT_ALPHA;
 	[self addSubview:rightCap];
-	[rightCap release];
 
-	UIImageView *anchor = [[UIImageView alloc] initWithFrame:CGRectMake(CALLOUT_LEFT_IMAGE_WIDTH + centreOffsetWidth, 0, CALLOUT_ANCHOR_WIDTH, CALLOUT_ANCHOR_HEIGHT)];
+    UIImageView *anchor = [[UIImageView alloc] initWithFrame:CGRectMake(CALLOUT_LEFT_IMAGE_WIDTH + centreOffsetWidth, 0, CALLOUT_ANCHOR_WIDTH, CALLOUT_ANCHOR_HEIGHT)];
 	anchor.image = CALLOUT_ANCHOR;
 	anchor.alpha = CALLOUT_ALPHA;
 	[self addSubview:anchor];
-	[anchor release];
 
-	if (centreWidth > CALLOUT_ANCHOR_WIDTH) {
+    if (centreWidth > CALLOUT_ANCHOR_WIDTH) {
 		CGRect leftFrame  = CGRectMake(CALLOUT_LEFT_IMAGE_WIDTH, 0, centreOffsetWidth, CALLOUT_HEIGHT);
 		CGRect rightFrame = CGRectMake(CALLOUT_LEFT_IMAGE_WIDTH + centreWidth - centreOffsetWidth, 0, centreOffsetWidth, CALLOUT_HEIGHT);
 
@@ -143,14 +140,12 @@ static UIImage *CALLOUT_ANCHOR;
 		leftBG.image = CALLOUT_BG;
 		leftBG.alpha = CALLOUT_ALPHA;
 		[self addSubview:leftBG];
-		[leftBG release];
 
-		UIImageView *rightBG = [[UIImageView alloc] initWithFrame:rightFrame];
+        UIImageView *rightBG = [[UIImageView alloc] initWithFrame:rightFrame];
 		rightBG.image = CALLOUT_BG;
 		rightBG.alpha = CALLOUT_ALPHA;
 		[self addSubview:rightBG];
-		[rightBG release];
-	}
+    }
 }
 
 - (void)setLabels {
@@ -179,8 +174,7 @@ static UIImage *CALLOUT_ANCHOR;
 		subtitleLabel.font            = [UIFont systemFontOfSize:SUBTITLE_FONT_SIZE];
 		subtitleLabel.text            = self.annotation.subtitle;
 		[self addSubview:subtitleLabel];
-		[subtitleLabel release];
-	}
+    }
 
 	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CALLOUT_LEFT_IMAGE_WIDTH, titleTopOffset, labelWidth, titleLabelHeight)];
 	titleLabel.textColor       = [UIColor whiteColor];
@@ -188,7 +182,6 @@ static UIImage *CALLOUT_ANCHOR;
 	titleLabel.font            = [UIFont boldSystemFontOfSize:titleFontSize];
 	titleLabel.text            = self.annotation.title;
 	[self addSubview:titleLabel];
-	[titleLabel release];
 }
 
 - (id)initWithAnnotation:(NAAnnotation *)annotation onMap:(NAMapView *)mapView {
@@ -235,12 +228,6 @@ static UIImage *CALLOUT_ANCHOR;
 	if ([keyPath isEqual:@"contentSize"]) {
 		[self setFramePositionForPoint:self.annotation.point];
 	}
-}
-
-- (void)dealloc {
-	[_mapView release];
-	[_annotation release];
-	[super dealloc];
 }
 
 @end

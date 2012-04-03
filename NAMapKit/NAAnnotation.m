@@ -17,7 +17,7 @@
 @synthesize rightCalloutAccessoryView = _rightCalloutAccessoryView;
 
 + (id)annotationWithPoint:(CGPoint)point {
-	return [[[[self class] alloc] initWithPoint:point] autorelease];
+	return [[[self class] alloc] initWithPoint:point];
 }
 
 - (id)initWithPoint:(CGPoint)point {
@@ -28,14 +28,6 @@
 	}
 
 	return self;
-}
-
-- (void)dealloc {
-	[_title release];
-	[_subtitle release];
-	[_rightCalloutAccessoryView release];
-
-	[super dealloc];
 }
 
 @end

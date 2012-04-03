@@ -72,9 +72,4 @@
 	}
 }
 
-- (void)dealloc {
-	[_annotation release];
-	[super dealloc];
-}
-
 @end
